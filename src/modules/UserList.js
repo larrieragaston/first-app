@@ -107,7 +107,12 @@ function UserList() {
 				}}
 			/>
 			{users.map((x) => (
-				<User data={x} userList={users} setUserList={setUsers}></User>
+				<User
+					key={x._id}
+					data={x}
+					userList={users}
+					setUserList={setUsers}
+				></User>
 			))}
 		</div>
 	);
