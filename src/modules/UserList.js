@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import User from "../components/User";
 import { Button, Form, Input, Modal, message } from "antd";
 import { LanguageContext } from "../context/LanguageContext";
@@ -57,7 +56,7 @@ const CreateUser = ({ open, onCreate, onCancel }) => {
 function UserList() {
 	const [users, setUsers] = useState([]);
 
-	const { language, setLanguage } = useContext(LanguageContext);
+	const { language } = useContext(LanguageContext);
 
 	const [open, setOpen] = useState(false);
 	const error = (errorMessage) => {

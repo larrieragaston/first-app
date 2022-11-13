@@ -1,5 +1,4 @@
 import { useState } from "react";
-import axios from "axios";
 import { Button } from "antd";
 import userService from "../services/users";
 
