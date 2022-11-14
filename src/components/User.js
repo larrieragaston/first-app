@@ -12,17 +12,17 @@ function User({ data, userList, setUserList }) {
 	};
 
 	const modificarUsuario = async () => {
-		const { data } = await userService.updateUserById(_id, {
+		const response = await userService.updateUserById(_id, {
 			userName: userNameModified,
 		});
-		console.log("Response: ", data);
+		console.log("Response: ", response);
 	};
 
 	const eliminarUsuario = async () => {
 		try {
-			const { data } = await userService.deleteUserById(_id);
+			const response = await userService.deleteUserById(_id);
 			setUserList(userList.filter((x) => x._id !== _id));
-			console.log("Response: ", data);
+			console.log("Response: ", response);
 		} catch (err) {
 			console.log("Therre was an error deleting user ", _id);
 			console.log(err);

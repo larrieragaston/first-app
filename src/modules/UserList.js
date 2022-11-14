@@ -66,14 +66,13 @@ function UserList() {
 	const onCreate = async (values) => {
 		try {
 			console.log("Received values of form: ", values);
-			const response = await userService.createUser({
+			const newUser = await userService.createUser({
 				userName: values.email,
 				role: "admin",
 				isActive: true,
 			});
-			const newUser = response.data;
 			setUsers([...users, newUser]);
-			console.log("Response: ", response);
+			console.log("Response: ", newUser);
 			setOpen(false);
 		} catch (err) {
 			error(err);
@@ -83,7 +82,7 @@ function UserList() {
 	useEffect(() => {
 		async function fetchData() {
 			const response = await userService.getUsers();
-			setUsers(response.data);
+			setUsers(response);
 		}
 		fetchData();
 	}, []);
